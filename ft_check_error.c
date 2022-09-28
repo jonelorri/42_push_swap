@@ -31,7 +31,7 @@ void	ft_is_big(char *arg)
 
 void	ft_check_more_errors(char **argv, int argc)
 {
-	if (!ft_check_args(argv) || !ft_duplicates_argv(argv, argc))
+	if (!ft_check_args(argv))
 		ft_write_error();
 	else if (argc == 3)
 	{
@@ -57,13 +57,13 @@ void	ft_check_error(void *param, int argc, char **argv)
 		if (m-> i == 1)
 		{
             ft_free_mtrx(m->temp_a_mtrx, 1);
-            exit(0);	
+            exit(0);
 		}
-        m->a_length = m->i;
-        m->total_length = m->i;
-        if (!ft_check_args2(m->temp_a_mtrx, m->a_length) || !ft_duplicates_mtx(m->temp_a_mtrx, m->a_length))
+        m->a_len = m->i;
+        m->total_len = m->i;
+        if (!ft_check_args2(m->temp_a_mtrx, m->a_len))
         {
-            ft_free_mtrx(m->temp_a_mtrx, m->total_length);
+            ft_free_mtrx(m->temp_a_mtrx, m->total_len);
             ft_write_error();
         }
     }
