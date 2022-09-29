@@ -31,8 +31,8 @@ typedef struct s_program
 	char	**mtrx_b;
 	int		dec_pos;
 	int		z;
-	int		f;
 	int		counter;
+	int		small_pb_counter;
 	int		reverse_len;
 	int		*temp_b_int;
 }			t_program;
@@ -63,11 +63,12 @@ int		ft_is_it_ordered2(char **matrix, int len);
 void	ft_pb_small(void *param);
 void	ft_reorder_down_small(int *stack_b);
 void	ft_reorder_up_small(void *param);
-void	ft_rra_small(int *stack_a, int len);
+void	ft_rra_small(int *stack_a);
 void	ft_ra_small(void *param);
 void	ft_pb_ra(void *param);
 void	ft_pb(void *param);
 void	ft_ra(void *param, char **matrix, int len);
 void	ft_full_pa(void *param);
+void	ft_print_mtrx(char **mtrx, int len);
 
 #endif

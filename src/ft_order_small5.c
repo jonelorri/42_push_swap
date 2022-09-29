@@ -19,7 +19,9 @@ void	ft_order_three_on_five(int *stack_a)
 	else if (stack_a[0] == 12 && stack_a[1] == 101)
 		write(1, "rra\n", 4);
 	else if (stack_a[0] == 12 && stack_a[1] == 11)
+	{
 		write(1, "sa\n", 3);
+	}
 	else if (stack_a[0] == 101 && stack_a[1] == 12)
 		write(1, "sa\nrra\n", 7);
 	else if (stack_a[0] == 101 && stack_a[1] == 11)
@@ -35,8 +37,6 @@ void	ft_5_loop_shorter(void *param)
 
 	m = param;
 	ft_pb_small(&*m);
-	m->f = 1;
-	m->reverse_len--;
 }
 
 void	ft_order_five_loop(void *param)
@@ -44,26 +44,24 @@ void	ft_order_five_loop(void *param)
 	t_program	*m;
 
 	m = param;
-	while (m->f < 6 || m->counter < 2)
+	m->small_pb_counter = 0;
+	m->a_len = 5;
+	m->b_len = 0;
+	while (m->b_len < 2)
 	{
-		if (m->temp_a_int[m->z] == 2)
-		{
+		if (m->temp_a_int[0] == 2)
 			ft_5_loop_shorter(&*m);
-		}
-		else if (m->temp_a_int[m->z] == 1)
+		else if (m->temp_a_int[0] == 1)
 		{
 			ft_pb_small(&*m);
-			m->reverse_len--;
 		}
-		else if (m->temp_a_int[m->reverse_len] == 2)
+		else if (m->temp_a_int[m->total_len - 1] == 2)
 		{
-			ft_rra_small(m->temp_a_int, m->reverse_len);
+			ft_rra_small(m->temp_a_int);
 			ft_pb_small(&*m);
 		}
 		else
 			ft_ra_small(&*m);
-		m->z = 0;
-		m->f ++;
 	}
 }
 
@@ -72,17 +70,13 @@ void	ft_order_five(void *param)
 	t_program	*m;
 
 	m = param;
-	m->z = 0;
-	m->f = 0;
-	m->counter = 0;
-	m->reverse_len = m->total_len - 1;
+	m->i = 0;
 	m->temp_b_int = (int *)malloc((m->total_len) * sizeof(int));
-	while (m->z < m->total_len)
+	while (m->i < m->total_len)
 	{
-		m->temp_b_int[m->z] = 0;
-		m->z ++;
+		m->temp_b_int[m->i] = 0;
+		m->i ++;
 	}
-	m->z = 0;
 	ft_order_five_loop(&*m);
 	ft_order_three_on_five(m->temp_a_int);
 	write(1, "pa\npa\n", 6);

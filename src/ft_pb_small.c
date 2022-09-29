@@ -35,5 +35,6 @@ void	ft_pb_small(void *param)
 		m->temp_b_int[1] = temp;
 		write(1, "sb\n", 3);
 	}
-	m->counter ++;
+	m->b_len ++;
+	m->a_len --;
 }

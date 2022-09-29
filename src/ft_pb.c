@@ -26,18 +26,16 @@ void	ft_reorder_down(void *param, char **matrix, int len)
 	}
 }
 
-void	ft_reorder_up(void *param, char **matrix, int len)
+void	ft_reorder_up(void *param)
 {
 	t_program	*m;
-	int			temp_len;
 	int			z;
 
 	m = param;
-	temp_len = len;
 	z = 0;
-	while (z < temp_len - 1)
+	while (z < m->a_len - 1)
 	{
-		ft_memcpy(matrix[z], matrix[z + 1], m->big_int);
+		ft_memcpy(m->mtrx_a[z], m->mtrx_a[z + 1], m->big_int);
 		z ++;
 	}
 }
@@ -49,7 +47,7 @@ void	ft_pb(void *param)
 	m = param;
 	ft_reorder_down(&*m, m->mtrx_b, m->b_len);
 	ft_memcpy(m->mtrx_b[0], m->mtrx_a[0], m->big_int);
-	ft_reorder_up(&*m, m->mtrx_a, m->a_len);
-	m->b_len ++;
+	ft_reorder_up(&*m);
 	m->a_len --;
+	m->b_len ++;
 }

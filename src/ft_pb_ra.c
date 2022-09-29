@@ -19,12 +19,15 @@ void	ft_pb_ra(void *param)
 	m = param;
 	if (m->mtrx_a[0][m->dec_pos] == '0')
 	{
-		ft_pb(&*m);
+		//printf("m->mtrx_a[0][m->dec_pos] -> %c\n", m->mtrx_a[0][m->dec_pos]);
 		write(1, "pb\n", 3);
+		ft_pb(&*m);
+		//ft_print_mtrx(m->mtrx_a, m->a_len);
 	}
 	else
 	{
-		ft_ra(&*m, m->mtrx_a, m->a_len);
 		write(1, "ra\n", 3);
+		ft_ra(&*m, m->mtrx_a, m->a_len);
+		//ft_print_mtrx(m->mtrx_a, m->a_len);
 	}
 }

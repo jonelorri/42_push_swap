@@ -12,21 +12,24 @@
 
 #include "push_swap.h"
 
-void	ft_reorder_down_rra(int *stack, int len)
+void	ft_rra_small(int *stack_a)
 {
-	int	i;
+	int	temp;
+	int	temp2;
+	int	temp3;
+	int	temp4;
+	int	temp5;
 
-	i = len;
-	while (i > 0)
-	{
-		stack[i] = stack[i - 1];
-		i --;
-	}
-}
+	temp = stack_a[0];
+	stack_a[0] = stack_a[4];
+	temp2 = stack_a[1];
+	stack_a[1] = temp;
+	temp3 = stack_a[2];
+	stack_a[2] = temp2;
+	temp4 = stack_a[3];
+	stack_a[3] = temp3;
+	temp5 = stack_a[4];
+	stack_a[4] = temp4;
 
-void	ft_rra_small(int *stack_a, int len)
-{
-	ft_reorder_down_rra(stack_a, len);
-	stack_a[0] = stack_a[len];
 	write(1, "rra\n", 4);
 }

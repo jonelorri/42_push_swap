@@ -19,16 +19,14 @@ void	ft_ra_small(void *param)
 	int			temp;
 
 	m = param;
-	real_len = 0;
+	real_len = m->a_len;
 	m->i = 0;
-	while (real_len < m->total_len && m->temp_a_int[real_len] != '\0')
-		real_len ++;
 	temp = m->temp_a_int[0];
 	while (m->i < real_len - 1)
 	{
 		m->temp_a_int[m->i] = m->temp_a_int[m->i + 1];
 		m->i ++;
 	}
-	m->temp_a_int[m->i - 1] = temp;
+	m->temp_a_int[m->i] = temp;
 	write(1, "ra\n", 3);
 }
