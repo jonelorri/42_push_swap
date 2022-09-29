@@ -70,5 +70,7 @@ void	ft_pb(void *param);
 void	ft_ra(void *param, char **matrix, int len);
 void	ft_full_pa(void *param);
 void	ft_print_mtrx(char **mtrx, int len);
+void	ft_check_error1(void *param, char **argv);
+int		ft_check_arg(char *arg);
 
 #endif

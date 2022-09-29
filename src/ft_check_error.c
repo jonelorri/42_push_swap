@@ -6,7 +6,7 @@
 /*   By: jelorria <jelorria@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 13:45:28 by jelorria          #+#    #+#             */
-/*   Updated: 2022/09/29 13:50:04 by jelorria         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:28:07 by jelorria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,12 @@ void	ft_check_more_errors2(void *param, char **argv)
 		m->i ++;
 	if (m->i == 1)
 	{
-		ft_free_mtrx(m->temp_a_mtrx, 1);
-		exit(0);
+		ft_check_error1(&*m, argv);
+	}
+	if (m->i == 2 && !ft_check_args(m->temp_a_mtrx))
+	{
+		ft_free_mtrx(m->temp_a_mtrx, 2);
+		ft_write_error();
 	}
 }
 
@@ -75,7 +79,7 @@ void	ft_check_error(void *param, int argc, char **argv)
 	m = param;
 	m->i = 0;
 	if (argc == 1)
-		exit(1);
+		exit (0);
 	else if (argc == 2)
 	{
 		ft_check_more_errors2(&*m, argv);

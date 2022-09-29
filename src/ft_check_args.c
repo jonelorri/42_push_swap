@@ -6,7 +6,7 @@
 /*   By: jelorria <jelorria@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 13:43:33 by jelorria          #+#    #+#             */
-/*   Updated: 2022/09/29 13:43:56 by jelorria         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:23:38 by jelorria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,27 @@ int	ft_check_args(char **args)
 		}
 		z = 0;
 		i --;
+	}
+	return (1);
+}
+
+int	ft_check_arg(char *arg)
+{
+	int	i;
+	int	z;
+
+	i = 0;
+	z = 0;
+	ft_is_big(arg);
+	while (arg[i])
+	{
+		i ++;
+	}
+	while (z < i)
+	{
+		if (((arg[z] >= 48 && arg[z] <= 57) || arg[z] == 45) == 0)
+			return (0);
+		z ++;
 	}
 	return (1);
 }

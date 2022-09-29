@@ -6,25 +6,11 @@
 /*   By: jelorria <jelorria@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:09:33 by jelorria          #+#    #+#             */
-/*   Updated: 2022/09/29 14:10:07 by jelorria         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:25:16 by jelorria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_print_mtrx(char **mtrx, int len)
-{
-	int i;
-
-	printf("-------------\n");
-	i = 0;
-	while (i < len)
-	{
-		printf("%s\n", mtrx[i]);
-		i ++;
-	}
-	printf("-------------\n");
-}
 
 void	ft_initialize_stack(void *param, int argc, char **argv)
 {
@@ -119,15 +105,9 @@ int	main(int argc, char *argv[])
 	ft_initialize_stack(&m, argc, argv);
 	ft_start(&m);
 	m.a_len = m.total_len;
-
-	//ft_print_mtrx(m.mtrx_a, m.a_len);
-
 	m.mtrx_b[0][0] = '\0';
 	m.dec_pos = m.big_int - 1;
 	ft_execute(&m);
-
-	//ft_print_mtrx(m.mtrx_a, m.a_len);
-
 	free(m.temp_new_int);
 	free(m.temp_a_int);
 	ft_free_mtrx(m.mtrx_a, m.total_len);

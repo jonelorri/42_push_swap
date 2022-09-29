@@ -6,7 +6,7 @@
 /*   By: jelorria <jelorria@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:08:35 by jelorria          #+#    #+#             */
-/*   Updated: 2022/09/29 14:08:48 by jelorria         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:24:51 by jelorria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ void	ft_rra_small(int *stack_a)
 	stack_a[3] = temp3;
 	temp5 = stack_a[4];
 	stack_a[4] = temp4;
-
 	write(1, "rra\n", 4);
 }
