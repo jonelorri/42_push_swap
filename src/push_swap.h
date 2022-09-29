@@ -6,7 +6,7 @@
 /*   By: jelorria <jelorria@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 17:42:14 by jelorria          #+#    #+#             */
-/*   Updated: 2022/09/26 18:01:54 by jelorria         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:10:44 by jelorria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,18 @@ typedef struct s_program
 	int		total_len;
 	int		b_len;
 	int		a_len;
-	int		pa_counter;
 	char	**temp_a_mtrx;
 	int		*temp_a_int;
 	int		*temp_new_int;
 	int		big_int;
 	char	**mtrx_a;
 	char	**mtrx_b;
+	int		dec_pos;
+	int		z;
+	int		f;
+	int		counter;
+	int		reverse_len;
+	int		*temp_b_int;
 }			t_program;
 
 void	ft_check_error(void *param, int argc, char **argv);
@@ -42,7 +47,7 @@ void	ft_is_big(char *arg);
 int		ft_check_args2(char **args, int len);
 int		ft_check_args(char **args);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
-int 	ft_duplicates(int *stack, int len);
+int		ft_duplicates(int *stack, int len);
 void	ft_ordered(int *new_stack, int len);
 void	ft_copy_stacks(int *new_stack, int *stack_a, int len);
 void	ft_to_positive(int *stack_a, int *new_stack, int len);
@@ -52,5 +57,17 @@ void	ft_fill_mtrx(void *param);
 char	*ft_itoa(int n);
 void	ft_add_cero(char *array);
 void	*ft_memcpy2(void *dst, const void *src, size_t n);
+int		ft_order_small(void *param);
+void	ft_order_five(void *param);
+int		ft_is_it_ordered2(char **matrix, int len);
+void	ft_pb_small(void *param);
+void	ft_reorder_down_small(int *stack_b);
+void	ft_reorder_up_small(void *param);
+void	ft_rra_small(int *stack_a, int len);
+void	ft_ra_small(void *param);
+void	ft_pb_ra(void *param);
+void	ft_pb(void *param);
+void	ft_ra(void *param, char **matrix, int len);
+void	ft_full_pa(void *param);
 
 #endif
