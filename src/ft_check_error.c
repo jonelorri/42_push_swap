@@ -47,6 +47,8 @@ void	ft_check_more_errors(char **argv, int argc)
 		ft_write_error();
 	else if (argc == 3)
 	{
+		if (ft_atoi(argv[1]) == ft_atoi(argv[2]))
+			ft_write_error();
 		if (ft_atoi(argv[1]) > ft_atoi(argv[2]))
 			write(1, "ra\n", 3);
 		exit(0);
